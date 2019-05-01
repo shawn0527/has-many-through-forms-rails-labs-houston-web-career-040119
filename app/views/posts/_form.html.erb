@@ -1,1 +1,19 @@
-
+<h1>Create Post Form</h1>
+<ul>
+<%= form_for @post do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<br>
+<%= f.label :content %>
+<%= f.text_area :content %>
+<br>
+<p>Please select category/categories:
+  <%= f.collection_check_boxes :catogory, @categories, :id, :name %>
+</p>
+<br>
+<p>and/or create a new category:
+  <%= f.label :category_name %>
+  <%= f.text_field :category %>
+</p>
+<% end %>
+</ul>
