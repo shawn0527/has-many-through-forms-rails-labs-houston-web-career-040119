@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :current_post, except: [:index, :new, :create]
   def show
     @post = Post.find(params[:id])
   end
@@ -10,7 +9,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @categories = Category.all 
+    @categories = Category.alls
   end
 
   def create
@@ -19,9 +18,6 @@ class PostsController < ApplicationController
   end
 
   private
-
-  def current_post
-    @post = Post.find(params[:id])
 
   def post_params
     params.require(:post).permit(:title, :content, category_ids:[], categories_attributes: [:name])
